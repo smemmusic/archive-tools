@@ -2,7 +2,12 @@
 
 gphoto2 --capture-image-and-download --force-overwrite
 convert capt0000.jpg -resize 800 -deskew 40% -fuzz 50% -trim +repage -quality 82 disk.jpg
-serial=$(zbarimg -q --raw capt0000.jpg)
+serial=$(zbarimg -q --raw disk.jpg)
+
+if [[ -z "$serial" ]]; then
+	echo "no qr code found"
+	exit 1
+fi
 
 echo $serial > serial.txt
 
