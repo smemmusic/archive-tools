@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/bash -x
 
-dd if=/dev/fd of=$(cat serial.txt).img bs=512
+dd if=/dev/usbfd of=$(cat serial.txt).img bs=512
