@@ -8,6 +8,8 @@ echo $serial > serial.txt
 
 cat serial.txt
 
-mv disk.jpg ${serial}.jpg
+mkdir $serial
+
+mv disk.jpg ${serial}/${serial}.jpg
 
 echo "insert disk in floppy drive then run dump.sh"

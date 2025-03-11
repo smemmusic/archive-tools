@@ -1,3 +1,6 @@
 #!/bin/bash -x
+serial=$(cat serial.txt)
 
-dd if=/dev/usbfd of=$(cat serial.txt).img bs=512
+mkdir -p ${serial}
+
+dd if=/dev/usbfd of=${serial}/${serial}.img bs=512
