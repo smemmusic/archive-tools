@@ -13,6 +13,12 @@ echo $serial > serial.txt
 
 cat serial.txt
 
+if [[ -d $serial ]]; then
+    echo "$serial already exists, was this already photographed?"
+    echo "remove $serial and try again or run dump.sh"
+    exit 1
+fi
+
 mkdir $serial
 
 mv capt0000.jpg ${serial}/${serial}.jpg
